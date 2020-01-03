@@ -1,0 +1,3 @@
+- **[index.html](./index.html)** `/usr/share/nginx/html/index.html` nginx index file
+- **[default](./default)** `/etc/nginx/sites-enabled/default` nginx config file
+- **[shiny-server.conf](./shiny-server.conf)** `/etc/shiny-server/shiny-server.conf` shiny server config file
