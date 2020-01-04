@@ -1,0 +1,13 @@
+[Unit]
+Description=Plumber API
+# After=postgresql
+# (or mariadb, mysql, etc if you use a DB with Plumber, otherwise leave this commented)
+
+[Service]
+ExecStart=/usr/bin/Rscript -e "api <- plumber::plumb('/home/andy/plumber-api/api/plumber.R'); api$run(port=8080, host='0.0.0.0', swagger=TRUE)"
+Restart=on-abnormal
+WorkingDirectory=/home/andy/plumber-api/api/
+User=andy
+
+[Install]
+WantedBy=multi-user.target
