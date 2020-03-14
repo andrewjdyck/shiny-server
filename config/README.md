@@ -7,3 +7,7 @@
 
 # Not enabled yet
 - **[monitorix.conf](./monitorix.conf)** `/etc/monitorix/monitorix.conf` monitorix config file
+
+# Notes
+- https://github.com/rstudio/rstudio/wiki/Installing-RStudio-Dependencies
+- https://stackoverflow.com/questions/610839/how-can-i-programmatically-create-a-new-cron-job
