@@ -53,6 +53,11 @@ write_files:
         location /rstudio/ {
           proxy_pass http://127.0.0.1:8787/;
         }
+        
+        location /api/ {
+          proxy_pass http://127.0.0.1:8080/;
+        }
+        
       }
 runcmd:
   # Install "shiny" package for R
@@ -63,23 +68,27 @@ runcmd:
   - R -e 'install.packages(c("devtools", "reshape2", "plyr", "Quandl", "data.table", "plumber"), repos="https://cran.rstudio.com/")'
   # Install misc R packages
   - R -e 'install.packages(c("forecast", "urca", "fpp"), repos="https://cran.rstudio.com/")'
+  # Install more R packages
+  - R -e 'install.packages(c("haven", "readr", "jsonlite"), repos="https://cran.rstudio.com/")'
   # Install dev packages from github
   - R -e 'devtools::install_github('andrewjdyck/statscanr')'
+  
   # Install private repos from github
   # TO DO: Need to figure out how to do this safely.
+  
   # Download and install rstudio-server
-  - wget https://download2.rstudio.org/rstudio-server-0.99.892-amd64.deb
-  - gdebi -n rstudio-server-0.99.892-amd64.deb
+  - wget https://download2.rstudio.org/server/trusty/amd64/rstudio-server-1.2.5033-amd64.deb
+  - gdebi -n rstudio-server-1.2.5033-amd64.deb
   # Download and install Shiny
-  - wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb
-  - gdebi -n shiny-server-1.4.2.786-amd64.deb
+  - wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.13.944-amd64.deb
+  - gdebi -n shiny-server-1.5.13.944-amd64.deb
   # Install Anaconda & deep learning libraries
-  - wget https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh
-  - bash ~/Anaconda3-5.1.0-Linux-x86_64.sh -b -p $HOME/anaconda
-  - export PATH="$HOME/anaconda/bin:$PATH"
-  - conda install -cy anaconda tensorflow
-  - conda install -cy conda-forge keras
-  - R -e 'install.packages(c("tensorflow", "keras"), repos="https://cran.rstudio.com/")'
+  #- wget https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh
+  #- bash ~/Anaconda3-5.1.0-Linux-x86_64.sh -b -p $HOME/anaconda
+  #- export PATH="$HOME/anaconda/bin:$PATH"
+  #- conda install -cy anaconda tensorflow
+  #- conda install -cy conda-forge keras
+  #- R -e 'install.packages(c("tensorflow", "keras"), repos="https://cran.rstudio.com/")'
   # Clean package files
   - rm *.deb
   - service nginx restart
