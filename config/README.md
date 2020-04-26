@@ -11,3 +11,8 @@
 # Notes
 - https://github.com/rstudio/rstudio/wiki/Installing-RStudio-Dependencies
 - https://stackoverflow.com/questions/610839/how-can-i-programmatically-create-a-new-cron-job
+
+## How to install R packages on droplet
+```{r}
+sudo su - -c "R -e \"install.packages('prettydoc', repos='http://cran.rstudio.com/')\""
+```
