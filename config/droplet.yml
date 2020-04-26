@@ -70,6 +70,8 @@ runcmd:
   - R -e 'install.packages(c("forecast", "urca", "fpp"), repos="https://cran.rstudio.com/")'
   # Install more R packages
   - R -e 'install.packages(c("haven", "readr", "jsonlite"), repos="https://cran.rstudio.com/")'
+  # Install more R packages
+  - R -e 'install.packages(c("prettydoc", "")), repos="https://cran.rstudio.com/")'
   # Install dev packages from github
   - R -e 'devtools::install_github('andrewjdyck/statscanr')'
   
