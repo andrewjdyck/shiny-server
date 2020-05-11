@@ -11,6 +11,7 @@ R Shiny apps running on DigitalOcean droplet
 
 # To do
 
+- Fix trailing slashes problem with nginx
 - Better swagger documentation of R Plumber
   - available now at http://apps.northernlightsdata.com/api/__swagger__/
   - notes on R Plumber swagger doc: https://github.com/rstudio/plumber/issues/417
