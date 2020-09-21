@@ -1,0 +1,6 @@
+
+# Ignore RStudio files and such
+.Rproj.user/
+.Rhistory
+
+
